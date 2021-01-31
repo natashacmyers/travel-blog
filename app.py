@@ -19,6 +19,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/map")
+def map():
+    return render_template("map.html")
+
+
 @app.route("/all_blogs")
 def all_blogs():
     blogs = mongo.db.blogs.find()
