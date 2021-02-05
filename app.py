@@ -47,10 +47,10 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "first_name": request.form.get("first_name").lower(),
-            "last_name": request.form.get("last_name").lower(),
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
             "password": generate_password_hash(
-                request.form.get("first_name").lower())
+                request.form.get("password").lower())
         }
         # add register to mongo db users
         mongo.db.users.insert_one(register)
@@ -62,6 +62,32 @@ def register():
         flash("Registration Successful!")
 
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if the username already exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # make sure the hashed password matches the user input password
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["username"] = request.form.get("username").lower()
+                    session["firstname"] = existing_user["first_name"]
+                    flash("Welcome {}!".format(existing_user["first_name"]))
+            else:
+                flash("Incorrect Username or Password")
+                return redirect(url_for("login"))
+
+        else:
+            flash("Incorrect Username or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
