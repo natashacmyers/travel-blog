@@ -33,6 +33,34 @@ def all_blogs():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # check if the username already exists
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        # if username already exists then the user must try another username
+
+        if existing_user:
+            flash("Username already exists. Please try again.")
+            return redirect(url_for("register"))
+
+        # if the username does not exist we can register the user
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "password": generate_password_hash(
+                request.form.get("first_name").lower())
+        }
+        # add register to mongo db users
+        mongo.db.users.insert_one(register)
+
+        # add the user to the session cookie
+        session["username"] = request.form.get("username").lower()
+
+        session["firstname"] = request.form.get("first_name")
+        flash("Registration Successful!")
+
     return render_template("register.html")
 
 if __name__ == "__main__":

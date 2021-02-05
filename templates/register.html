@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align orange-text">Register</h3>
+<h3 class="center-align light-blue-text text-darken-4">Register</h3>
 <div class="row">
     <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('register')}}">
         <div class="card light-blue lighten-5">
@@ -9,22 +9,22 @@
                 <div class="row">
                     <!-- First Name -->
                     <div class="input-field col s12">
-                        <input id="first_name" type="text" name="first_name" class="validate">
+                        <input id="first_name" type="text" name="first_name" minlength="2" maxlength="25" class="validate" required>
                         <label for="first_name">First Name</label>
                     </div>
                     <!-- Last Name -->
                     <div class="input-field col s12">
-                        <input id="last_name" type="text" name="last_name" class="validate">
+                        <input id="last_name" type="text" name="last_name" minlength="2" maxlength="25" class="validate" required>
                         <label for="last_name">Last Name</label>
                     </div>
                     <!-- Username -->
                     <div class="input-field col s12">
-                        <input id="username" type="text" name="username" class="validate">
+                        <input id="username" type="text" name="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
                     </div>
                     <!-- Password -->
                     <div class="input-field col s12">
-                        <input id="password" type="text" name="password" class="validate">
+                        <input id="password" type="password" name="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
                     </div>
                     <div class="row registerbutton center-align">
