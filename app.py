@@ -97,9 +97,19 @@ def profile(username):
     # get the username and firstname from the database
     first_name = mongo.db.users.find_one({"username": session["username"]})["first_name"]
     userblogs = mongo.db.blogs.find({"username": session["username"]})
-    return render_template("profile.html", 
-        first_name=first_name, userblogs=userblogs)
+    if session["username"]:
+        return render_template("profile.html", 
+            first_name=first_name, userblogs=userblogs)
+    else:
+        return redirect(url_for('login'))
 
+
+@app.route("/logout", methods=["GET", "POST"])
+def logout():
+    flash("You have been logged out")
+    session.pop("username")
+    session.pop("first_name")
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
