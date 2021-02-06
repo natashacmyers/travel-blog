@@ -58,8 +58,9 @@ def register():
         # add the user to the session cookie
         session["username"] = request.form.get("username").lower()
 
-        session["firstname"] = request.form.get("first_name")
+        session["first_name"] = request.form.get("first_name")
         flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["username"]))
 
     return render_template("register.html")
 
@@ -76,8 +77,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["username"] = request.form.get("username").lower()
-                    session["firstname"] = existing_user["first_name"]
+                    session["first_name"] = existing_user["first_name"]
                     flash("Welcome {}!".format(existing_user["first_name"]))
+                    return redirect(url_for(
+                        "profile", username=session["username"]))
             else:
                 flash("Incorrect Username or Password")
                 return redirect(url_for("login"))
@@ -87,6 +90,15 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # get the username and firstname from the database
+    first_name = mongo.db.users.find_one({"username": session["username"]})["first_name"]
+    userblogs = mongo.db.blogs.find({"username": session["username"]})
+    return render_template("profile.html", 
+        first_name=first_name, userblogs=userblogs)
 
 
 if __name__ == "__main__":

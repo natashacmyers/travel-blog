@@ -22,3 +22,7 @@
     line-height: 1.5;
     color: red;
 }
+
+.blogheader {
+    text-decoration: underline;
+}

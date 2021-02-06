@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align light-blue-text text-darken-4"> {{ first_name }}'s Profile </h3>
+<div class="row">
+    <div class="col s12 offset-m2 m8">
+        <div class="card light-blue lighten-5">
+            <div class="card-content center-align">
+
+                <h4 class="blogheader">All My Blogs! </h4><br>
+                {% for blog in userblogs %}
+                    <h5>{{ blog.blog_name }}</h5><br>
+                    <em>Country: {{ blog.country_name }} </em><br>
+                    {{ blog.blog_description}}<br>
+                    Date Posted: {{ blog.blog_date}}<br><br><br>
+                {% endfor %} 
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
