@@ -98,10 +98,15 @@ def profile(username):
     first_name = mongo.db.users.find_one({"username": session["username"]})["first_name"]
     userblogs = mongo.db.blogs.find({"username": session["username"]})
     if session["username"]:
-        return render_template("profile.html", 
+        return render_template("profile.html",
             first_name=first_name, userblogs=userblogs)
     else:
         return redirect(url_for('login'))
+
+
+@app.route("/new_blog", methods=["GET", "POST"])
+def new_blog():
+    return render_template("new_blog.html")
 
 
 @app.route("/logout", methods=["GET", "POST"])
@@ -110,6 +115,9 @@ def logout():
     session.pop("username")
     session.pop("first_name")
     return redirect(url_for("login"))
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

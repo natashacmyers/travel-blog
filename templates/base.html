@@ -27,7 +27,7 @@
                     <li><a href="{{ url_for('all_blogs')}}">Search</a></li>
                     {% if session.username %}
                         <li><a href="{{url_for('profile', username=session['username'])}}">Profile</a></li>
-                        <li><a href="#">New Blog</a></li>
+                        <li><a href="{{ url_for('new_blog')}}">New Blog</a></li>
                         <li><a href="{{ url_for('logout')}}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login')}}">Log In</a></li>
@@ -43,7 +43,7 @@
                     <li><a href="{{ url_for('all_blogs')}}">Search</a></li>
                     {% if session.username %}
                         <li><a href="{{url_for('profile', username=session['username'])}}">Profile</a></li>
-                        <li><a href="#">New Blog</a></li>
+                        <li><a href="{{ url_for('new_blog')}}">New Blog</a></li>
                         <li><a href="{{ url_for('logout')}}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login')}}">Log In</a></li>
