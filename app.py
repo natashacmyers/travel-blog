@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -106,6 +107,21 @@ def profile(username):
 
 @app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
+    if request.method == "POST":
+        now = datetime.now()
+        date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+        blog = {
+             "blog_name": request.form.get("blog_name"),
+             "country_name": request.form.get("blog_country"),
+             "blog_description": request.form.get("blog_description"),
+             "username": session["username"],
+             "blog_date": date_time
+        }
+        mongo.db.blogs.insert_one(blog)
+        flash("Task Successfully Added")
+        return redirect(url_for(
+                        "profile", username=session["username"]))
+
     return render_template("new_blog.html")
 
 
