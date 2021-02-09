@@ -26,3 +26,12 @@
 .blogheader {
     text-decoration: underline;
 }
+
+.blogname {
+    font-size: x-large;
+}
+
+.btn-margin {
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
