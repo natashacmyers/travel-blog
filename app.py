@@ -134,6 +134,18 @@ def new_blog():
 
 @app.route("/edit_blog/<blog_id>", methods=["GET", "POST"])
 def edit_blog(blog_id):
+    if request.method == "POST":
+        updated_blog = {
+             "blog_name": request.form.get("blog_name"),
+             "country_name": request.form.get("blog_country"),
+             "blog_description": request.form.get("blog_description"),
+             "username": session["username"],
+             "blog_date": request.form.get("blog_date")
+        }
+        mongo.db.blogs.update({"_id": ObjectId(blog_id)}, updated_blog)
+        flash("Task Successfully Updated")
+        return redirect(url_for(
+                        "profile", username=session["username"]))
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     countries = mongo.db.countries.find().sort("country_name", 1)
     return render_template("edit_blog.html", blog=blog, countries=countries)
