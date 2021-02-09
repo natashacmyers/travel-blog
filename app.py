@@ -115,29 +115,28 @@ def logout():
 
 @app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
+    countries = mongo.db.countries.find().sort("country_name", 1)
     if request.method == "POST":
-        now = datetime.now()
-        date_time = now.strftime("%d/%m/%Y, %H:%M:%S")
         blog = {
              "blog_name": request.form.get("blog_name"),
              "country_name": request.form.get("blog_country"),
              "blog_description": request.form.get("blog_description"),
              "username": session["username"],
-             "blog_date": date_time
+             "blog_date": request.form.get("blog_date")
         }
         mongo.db.blogs.insert_one(blog)
         flash("Task Successfully Added")
         return redirect(url_for(
                         "profile", username=session["username"]))
 
-    return render_template("new_blog.html")
+    return render_template("new_blog.html", countries=countries)
 
 
 @app.route("/edit_blog/<blog_id>", methods=["GET", "POST"])
 def edit_blog(blog_id):
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
-
-    return render_template("edit_blog.html", blog=blog)
+    countries = mongo.db.countries.find().sort("country_name", 1)
+    return render_template("edit_blog.html", blog=blog, countries=countries)
 
 
 if __name__ == "__main__":

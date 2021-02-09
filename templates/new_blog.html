@@ -9,7 +9,7 @@
                 <div class="row">
                     <!-- Blog Name -->
                     <div class="input-field col s12">
-                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="25" class="validate"
+                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="100" class="validate"
                             required>
                         <label for="blog_name">Blog Name</label>
                     </div>
@@ -17,15 +17,11 @@
                     <div class="input-field col s12">
                         <select name="blog_country" class="validate" required>
                             <option value="" disabled selected>Choose a Country</option>
-                            <option value="UK">UK</option>
-                            <option value="America">America</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Russia">Russia</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Poland">Poland</option>
-                            <option value="Switzerland">Switzerland</option>
+                            {% for country in countries %}
+                                <option value="{{ country.country_name }}">{{ country.country_name }}</option>
+                            {% endfor %}
                         </select>
-                        <label>Country</label>
+                        <label for="country_name">Country</label>
                     </div>
                     <!-- Description -->
                     <div class="input-field col s12">
@@ -33,7 +29,14 @@
                            class="validate" required>
                         <label for="blog_description">Description</label>
                     </div>
+                    <!-- Date Picker -->
+                    <div class="input-field col s12">
+                        <input name="blog_date" id="blog_date" type="text" class="datepicker validate" required>
+                        <label for="blog_date">Date</label>
+                    </div>
+                    <!-- Submit and Cancel buttons -->
                     <div class="row center-align">
+                        <a href="{{ url_for('profile', username=session['username']) }}" class="btn-large red">Cancel</a>
                         <button type="submit" class="btn-large light-blue">Submit</button>
                     </div>
                 </div>

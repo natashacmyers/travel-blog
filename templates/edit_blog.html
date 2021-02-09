@@ -9,31 +9,38 @@
                 <div class="row">
                     <!-- Blog Name -->
                     <div class="input-field col s12">
-                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="25" class="validate"
-                            required>
+                        <input id="blog_name" type="text" value="{{blog.blog_name}}" name="blog_name" minlength="2"
+                            maxlength="100" class="validate" required>
                         <label for="blog_name">Blog Name</label>
                     </div>
                     <!-- Country -->
                     <div class="input-field col s12">
                         <select name="blog_country" class="validate" required>
-                            <option value="" disabled selected>Choose a Country</option>
-                            <option value="UK">UK</option>
-                            <option value="America">America</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Russia">Russia</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Poland">Poland</option>
-                            <option value="Switzerland">Switzerland</option>
+                            <option value="" disabled>Choose a Country</option>
+                            {% for country in countries %}
+                            {% if country.country_name == blog.country_name %}
+                            <option value="{{ country.country_name }}" selected>{{ country.country_name }}</option>
+                            {% else %}
+                            <option value="{{ country.country_name }}">{{ country.country_name }}</option>
+                            {% endif %}
+                            {% endfor %}
                         </select>
-                        <label>Country</label>
+                        <label for="country_name">Country</label>
                     </div>
                     <!-- Description -->
                     <div class="input-field col s12">
-                        <input id="blog_description" type="text" name="blog_description"
-                           class="validate" required>
+                        <input id="blog_description" value="{{blog.blog_description}}" type="text"
+                            name="blog_description" class="validate" required>
                         <label for="blog_description">Description</label>
                     </div>
+                    <!-- Date Picker -->
+                    <div class="input-field col s12">
+                        <input name="blog_date" id="blog_date" type="text" class="datepicker validate" required>
+                        <label for="blog_date">Date</label>
+                    </div>
+                    <!--Submit and Cancel -->
                     <div class="row center-align">
+                        <a href="{{ url_for('profile', username=session['username']) }}" class="btn-large red">Cancel</a>
                         <button type="submit" class="btn-large light-blue">Submit</button>
                     </div>
                 </div>
