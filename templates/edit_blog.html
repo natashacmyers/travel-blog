@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align light-blue-text text-darken-4">Edit Blog</h3>
+<div class="row">
+    <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('edit_blog', blog_id=blog._id) }}">
+        <div class="card light-blue lighten-5">
+            <div class="card-content white-text">
+                <div class="row">
+                    <!-- Blog Name -->
+                    <div class="input-field col s12">
+                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="25" class="validate"
+                            required>
+                        <label for="blog_name">Blog Name</label>
+                    </div>
+                    <!-- Country -->
+                    <div class="input-field col s12">
+                        <select name="blog_country" class="validate" required>
+                            <option value="" disabled selected>Choose a Country</option>
+                            <option value="UK">UK</option>
+                            <option value="America">America</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Russia">Russia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Switzerland">Switzerland</option>
+                        </select>
+                        <label>Country</label>
+                    </div>
+                    <!-- Description -->
+                    <div class="input-field col s12">
+                        <input id="blog_description" type="text" name="blog_description"
+                           class="validate" required>
+                        <label for="blog_description">Description</label>
+                    </div>
+                    <div class="row center-align">
+                        <button type="submit" class="btn-large light-blue">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

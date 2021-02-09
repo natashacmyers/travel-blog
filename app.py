@@ -105,6 +105,14 @@ def profile(username):
         return redirect(url_for('login'))
 
 
+@app.route("/logout", methods=["GET", "POST"])
+def logout():
+    flash("You have been logged out")
+    session.pop("username")
+    session.pop("first_name")
+    return redirect(url_for("login"))
+
+
 @app.route("/new_blog", methods=["GET", "POST"])
 def new_blog():
     if request.method == "POST":
@@ -125,14 +133,11 @@ def new_blog():
     return render_template("new_blog.html")
 
 
-@app.route("/logout", methods=["GET", "POST"])
-def logout():
-    flash("You have been logged out")
-    session.pop("username")
-    session.pop("first_name")
-    return redirect(url_for("login"))
+@app.route("/edit_blog/<blog_id>", methods=["GET", "POST"])
+def edit_blog(blog_id):
+    blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
 
-
+    return render_template("edit_blog.html", blog=blog)
 
 
 if __name__ == "__main__":
