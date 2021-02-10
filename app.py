@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -26,10 +25,20 @@ def map():
     return render_template("map.html")
 
 
-@app.route("/all_blogs")
+@app.route("/all_blogs", methods=["GET", "POST"])
 def all_blogs():
     blogs = mongo.db.blogs.find()
-    return render_template("blogs.html", blogs=blogs)
+    if request.method == "POST":
+        session["search"] = request.form.get("search")
+        return redirect(url_for("search_blogs"))
+
+    return render_template("all_blogs.html", blogs=blogs)
+
+
+@app.route("/search_blogs")
+def search_blogs():
+    blogs = mongo.db.blogs.find()
+    return render_template("search_blogs.html", blogs=blogs, search=session['search'])
 
 
 @app.route("/register", methods=["GET", "POST"])

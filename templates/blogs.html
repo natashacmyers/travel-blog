@@ -1,9 +1,0 @@
-
-{% extends "base.html" %}  
-{% block content %}
-  {% for blog in blogs %}
-        {{ blog.blog_name }}<br>
-        <em>{{ blog.country_name }} </em><br>
-        {{ blog.blog_description}}
-   {% endfor %} 
-{% endblock %}
