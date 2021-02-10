@@ -151,6 +151,14 @@ def edit_blog(blog_id):
     return render_template("edit_blog.html", blog=blog, countries=countries)
 
 
+@app.route("/delete_blog/<blog_id>")
+def delete_blog(blog_id):
+    mongo.db.blogs.remove({"_id": ObjectId(blog_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for(
+                        "profile", username=session["username"]))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

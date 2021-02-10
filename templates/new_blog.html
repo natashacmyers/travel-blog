@@ -7,12 +7,6 @@
         <div class="card light-blue lighten-5">
             <div class="card-content white-text">
                 <div class="row">
-                    <!-- Blog Name -->
-                    <div class="input-field col s12">
-                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="100" class="validate"
-                            required>
-                        <label for="blog_name">Blog Name</label>
-                    </div>
                     <!-- Country -->
                     <div class="input-field col s12">
                         <select name="blog_country" class="validate" required>
@@ -22,6 +16,12 @@
                             {% endfor %}
                         </select>
                         <label for="country_name">Country</label>
+                    </div>
+                    <!-- Blog Name -->
+                    <div class="input-field col s12">
+                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="100" class="validate"
+                            required>
+                        <label for="blog_name">Blog Name</label>
                     </div>
                     <!-- Description -->
                     <div class="input-field col s12">
