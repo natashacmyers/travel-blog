@@ -81,6 +81,11 @@ def login():
         # check if the username already exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
+        #search = "Canada New York Paris"
+        #search_list = search.split()
+        #search_results = mongo.db.database.find({"Title": })
+        #render_template(results.html, search_results=search_results)
+
 
         if existing_user:
             # make sure the hashed password matches the user input password

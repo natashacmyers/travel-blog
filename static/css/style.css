@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-/* Navigation */
+/*----------- Navigation --------------*/
 .topnav-header {
     font-family: 'Comfortaa', cursive;
     padding-left: 10px;
@@ -18,10 +18,33 @@
     background-color: lightblue;
 }
 
+.nav-background {
+    background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/cumulus-cloud.jpg/cumulus-cloud.jpg/metofficegovuk%3AheroMedium");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sidenav-background {
+    background-image: url("https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/weather/cloud/cumulus-cloud.jpg/cumulus-cloud.jpg/metofficegovuk%3AheroMedium");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px black;
+}
+
+nav ul li a {
+    font-size: x-large;
+}
+
+/*------------ Blogs ---------------*/
 
 .flashes h4 {
     line-height: 1.5;
-    color: red;
+    color: firebrick;
 }
 
 .blogheader {
@@ -40,7 +63,7 @@
 .list-padding {
     padding: 5px;
 }
-/* Search bar CSS */
+/*----------- Search bar CSS -------------*/
 
 
 body{
