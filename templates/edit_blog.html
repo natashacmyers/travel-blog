@@ -29,9 +29,16 @@
                     </div>
                     <!-- Description -->
                     <div class="input-field col s12">
-                        <input id="blog_description" value="{{blog.blog_description}}" type="text"
-                            name="blog_description" class="validate" required>
-                        <label for="blog_description">Description</label>
+                        <textarea id="blog_description" value="{{blog.blog_description}}" type="text"
+                            name="blog_description" class=" materialize-textarea validate" required></textarea>
+                        <label for="blog_description">Blog Entry</label>
+                    </div>
+                  <!-- Image Upload -->
+                    <div class=" image-field-size file-field input-field">
+                        <div class="btn">
+                            <span>Image Upload</span>
+                            <input value="{{blog.blog_image}}" type="file" multiple>
+                        </div>
                     </div>
                     <!-- Date Picker -->
                     <div class="input-field col s12">

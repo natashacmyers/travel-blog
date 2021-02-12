@@ -42,6 +42,7 @@ nav ul li a {
 
 /*------------ Blogs ---------------*/
 
+
 .flashes h4 {
     line-height: 1.5;
     color: firebrick;
@@ -62,6 +63,10 @@ nav ul li a {
 
 .list-padding {
     padding: 5px;
+}
+
+.image-field-size {
+    height: 10px;
 }
 /*----------- Search bar CSS -------------*/
 

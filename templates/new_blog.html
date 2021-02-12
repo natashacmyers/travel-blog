@@ -12,22 +12,29 @@
                         <select name="blog_country" class="validate" required>
                             <option value="" disabled selected>Choose a Country</option>
                             {% for country in countries %}
-                                <option value="{{ country.country_name }}">{{ country.country_name }}</option>
+                            <option value="{{ country.country_name }}">{{ country.country_name }}</option>
                             {% endfor %}
                         </select>
                         <label for="country_name">Country</label>
                     </div>
                     <!-- Blog Name -->
                     <div class="input-field col s12">
-                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="100" class="validate"
-                            required>
+                        <input id="blog_name" type="text" name="blog_name" minlength="2" maxlength="100"
+                            class="validate" required>
                         <label for="blog_name">Blog Name</label>
                     </div>
                     <!-- Description -->
                     <div class="input-field col s12">
-                        <input id="blog_description" type="text" name="blog_description"
-                           class="validate" required>
-                        <label for="blog_description">Description</label>
+                        <textarea id="blog_description" type="text" name="blog_description"
+                            class="materialize-textarea validate" required></textarea>
+                        <label for="blog_description">Blog Entry</label>
+                    </div>
+                    <!-- Image Upload -->
+                    <div class=" image-field-size file-field input-field">
+                        <div class="btn">
+                            <span>Image Upload</span>
+                            <input type="file" multiple>
+                        </div>
                     </div>
                     <!-- Date Picker -->
                     <div class="input-field col s12">
@@ -36,7 +43,8 @@
                     </div>
                     <!-- Submit and Cancel buttons -->
                     <div class="row center-align">
-                        <a href="{{ url_for('profile', username=session['username']) }}" class="btn-large red">Cancel</a>
+                        <a href="{{ url_for('profile', username=session['username']) }}"
+                            class="btn-large red">Cancel</a>
                         <button type="submit" class="btn-large light-blue">Submit</button>
                     </div>
                 </div>

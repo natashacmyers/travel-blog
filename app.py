@@ -27,18 +27,14 @@ def map():
 
 @app.route("/all_blogs", methods=["GET", "POST"])
 def all_blogs():
-    blogs = mongo.db.blogs.find()
+    blogs = mongo.db.blogs.find().sort("blog_date", 1)
     if request.method == "POST":
-        session["search"] = request.form.get("search")
-        return redirect(url_for("search_blogs"))
+        search_results = mongo.db.blogs.find(
+            {"country_name": request.form.get("search")})
+        return render_template(
+            "search_blogs.html", search_results=search_results)
 
     return render_template("all_blogs.html", blogs=blogs)
-
-
-@app.route("/search_blogs")
-def search_blogs():
-    blogs = mongo.db.blogs.find()
-    return render_template("search_blogs.html", blogs=blogs, search=session['search'])
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -81,10 +77,6 @@ def login():
         # check if the username already exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        #search = "Canada New York Paris"
-        #search_list = search.split()
-        #search_results = mongo.db.database.find({"Title": })
-        #render_template(results.html, search_results=search_results)
 
 
         if existing_user:

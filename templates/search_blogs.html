@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <h3 class="center-align light-blue-text text-darken-4"> Search All Blogs </h3>
+    <h3 class="center-align light-blue-text text-darken-4"> Search Results </h3>
 </div>
 <div class="row">
     <div class="col s12 offset-m2 m8">
         <div class="card light-blue lighten-5">
             <div class="card-content center-align">
                 <ul class="collapsible">
-                    {% for blog in blogs %}
-                    {% if search in blog.blog_name %}
+                    {% for blog in search_results %}
                     <li>
                         <div class="collapsible-header ">
                             {% if session.username == blog.username %}
@@ -30,7 +29,6 @@
                             <p><em>by: {{ blog.username }}</em></p>
                         </div>
                     </li>
-                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
