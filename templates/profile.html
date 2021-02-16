@@ -21,6 +21,7 @@
                                 <div class="collapsible-body">
                                     <strong> Country: {{ blog.country_name }}</strong>
                                     <p>{{ blog.blog_description }}</p>
+                                    <img src="{{ url_for('file', filename=blog[blog_image])}}" alt="blog image">
                                     <p><em>by: {{ blog.username }}</em></p>
                                 </div>
                             </li>

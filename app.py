@@ -78,7 +78,6 @@ def login():
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
-
         if existing_user:
             # make sure the hashed password matches the user input password
             if check_password_hash(
@@ -106,7 +105,7 @@ def profile(username):
     userblogs = mongo.db.blogs.find({"username": session["username"]})
     if session["username"]:
         return render_template("profile.html",
-            first_name=first_name, userblogs=userblogs)
+            first_name=first_name, userblogs=userblogs, filename='blog_image')
     else:
         return redirect(url_for('login'))
 
@@ -123,15 +122,18 @@ def logout():
 def new_blog():
     countries = mongo.db.countries.find().sort("country_name", 1)
     if request.method == "POST":
+        blog_image = request.files["blog_image"]
+        mongo.save_file(blog_image.filename, blog_image)
         blog = {
              "blog_name": request.form.get("blog_name"),
              "country_name": request.form.get("blog_country"),
              "blog_description": request.form.get("blog_description"),
+             "blog_image": blog_image.filename,
              "username": session["username"],
              "blog_date": request.form.get("blog_date")
         }
         mongo.db.blogs.insert_one(blog)
-        flash("Task Successfully Added")
+        flash("Blog Successfully Added")
         return redirect(url_for(
                         "profile", username=session["username"]))
 
@@ -145,11 +147,12 @@ def edit_blog(blog_id):
              "blog_name": request.form.get("blog_name"),
              "country_name": request.form.get("blog_country"),
              "blog_description": request.form.get("blog_description"),
+             "blog_image": request.form.get("blog_image"),
              "username": session["username"],
              "blog_date": request.form.get("blog_date")
         }
         mongo.db.blogs.update({"_id": ObjectId(blog_id)}, updated_blog)
-        flash("Task Successfully Updated")
+        flash("Blog Successfully Updated")
         return redirect(url_for(
                         "profile", username=session["username"]))
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
@@ -160,9 +163,14 @@ def edit_blog(blog_id):
 @app.route("/delete_blog/<blog_id>")
 def delete_blog(blog_id):
     mongo.db.blogs.remove({"_id": ObjectId(blog_id)})
-    flash("Task Successfully Deleted")
+    flash("Blog Successfully Deleted")
     return redirect(url_for(
                         "profile", username=session["username"]))
+
+
+@app.route("/file/<filename>")
+def file(filename):
+    return mongo.send_file(filename)
 
 
 if __name__ == "__main__":

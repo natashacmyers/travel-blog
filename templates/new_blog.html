@@ -3,7 +3,7 @@
 
 <h3 class="center-align light-blue-text text-darken-4">New Blog</h3>
 <div class="row">
-    <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('new_blog')}}">
+    <form class="col s12 offset-m2 m8" method="POST" action="{{ url_for('new_blog')}}" enctype="multipart/form-data">
         <div class="card light-blue lighten-5">
             <div class="card-content white-text">
                 <div class="row">
@@ -30,12 +30,22 @@
                         <label for="blog_description">Blog Entry</label>
                     </div>
                     <!-- Image Upload -->
-                    <div class=" image-field-size file-field input-field">
-                        <div class="btn">
-                            <span>Image Upload</span>
-                            <input type="file" multiple>
+                    <div class="col s12 form-group">
+                        <label>Select image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="blog_image" id="blog_image">
+                            <label class="custom-file-label" for="blog_image">Select image...</label>
                         </div>
                     </div>
+                    <!-- <div class=" col s12 file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input name="blog_image" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div> -->
                     <!-- Date Picker -->
                     <div class="input-field col s12">
                         <input name="blog_date" id="blog_date" type="text" class="datepicker validate" required>
