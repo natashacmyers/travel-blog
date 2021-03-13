@@ -71,24 +71,14 @@
       var options = {};
       chart.draw(data, options);
 
-      
 
       function selectedCountry() {
           var selection = chart.getSelection();
           var message = '';
-          for (var i = 0; i < selection.length; i++) {
-              var item = selection[i];
-              message += 'row: ' + data.getValue(item.row, 0);
-              countryName = data.getValue(item.row, 0);
-
-          }
-          if (message == '') {
-              message = 'nothing';
-          }
-          alert('You selected ' + message);
+          var item = selection[0];
+          countryName = data.getValue(item.row, 0);
+          window.location.replace("/map_search/" + countryName);
       }
 
       google.visualization.events.addListener(chart, 'select', selectedCountry);
   }
-
-

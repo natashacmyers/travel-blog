@@ -1,7 +1,8 @@
 import os
+import sys
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, jsonify, json, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -122,7 +123,7 @@ def logout():
 def new_blog():
     countries = mongo.db.countries.find().sort("country_name", 1)
     if request.method == "POST":
-        blog_image = request.files["blog_image"]
+        blog_image = request.files['blog_image']
         mongo.save_file(blog_image.filename, blog_image)
         blog = {
              "blog_name": request.form.get("blog_name"),
@@ -172,6 +173,15 @@ def delete_blog(blog_id):
 def file(filename):
     return mongo.send_file(filename)
 
+
+@app.route("/map_search/<country_name>", methods=["GET", "POST"])
+def map_search(country_name):
+    search_results = mongo.db.blogs.find(
+            {"country_name": country_name})
+    
+    return render_template("search_map.html",
+            search_results=search_results)
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
