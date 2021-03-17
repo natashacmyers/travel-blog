@@ -88,6 +88,9 @@ body {
     width: 80%;
 }
 
+.editandeletesmall, .blognamesmall {
+    display: block; 
+}
 
 /*----------- Search bar CSS -------------*/
 
