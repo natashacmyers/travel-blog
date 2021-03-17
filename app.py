@@ -33,9 +33,9 @@ def all_blogs():
         search_results = mongo.db.blogs.find(
             {"country_name": request.form.get("search")})
         return render_template(
-            "search_blogs.html", search_results=search_results)
+            "search_blogs.html", search_results=search_results, filename='blog_image')
 
-    return render_template("all_blogs.html", blogs=blogs)
+    return render_template("all_blogs.html", blogs=blogs, filename='blog_image')
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -180,7 +180,7 @@ def map_search(country_name):
             {"country_name": country_name})
     
     return render_template("search_map.html",
-            search_results=search_results)
+            search_results=search_results, filename='blog_image')
     
 
 if __name__ == "__main__":

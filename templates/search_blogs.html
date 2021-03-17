@@ -24,10 +24,10 @@
                             </div>
                         </div>
                         <div class="collapsible-body">
-                            <strong> Country: {{ blog.country_name }}</strong>
-                            <p>{{ blog.blog_description }}</p>
-                            <p>{{ blog.blog_image}} </p>
-                            <p><em>by: {{ blog.username }}</em></p>
+                            <h6> Country:   {{ blog.country_name }}</h6><br>
+                            <p>{{ blog.blog_description }}</p><br><br>
+                            <img src="{{ url_for('file', filename=blog.blog_image)}}" alt="blog image" class="blog-images"><br><br>
+                            <p><em>By: {{ blog.username }}</em></p>
                         </div>
                     </li>
                     {% endfor %}
