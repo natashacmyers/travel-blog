@@ -71,6 +71,11 @@ nav ul li a {
     width: 100% !important;
 }
 
+.welcome-paragraph {
+    text-align: center;
+    font-size: large;
+    margin: 1em;
+}
 
 /*------------ Blogs ---------------*/
 
