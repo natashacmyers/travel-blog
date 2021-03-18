@@ -3,6 +3,7 @@
 
 /*----------- Navigation --------------*/
 
+
 nav {
     padding: 0 1em;
 }
@@ -10,6 +11,20 @@ nav {
     font-family: 'Comfortaa', cursive;
     padding-left: 10px;
     padding-right: 10px;
+    min-height: 1.5em;
+}
+
+
+.header-small {
+    position: inherit;
+    text-align: center;
+    padding-left: 0.7em !important;
+    letter-spacing: 0.2em;
+}
+
+.brand-logo {
+    font-size: 3rem !important;
+    width: 50%;
 }
 
 
@@ -17,7 +32,7 @@ nav {
     border-radius: 15px;
     margin-left: 10px;
     margin-right: 10px;
-    padding-top: 10px;
+    padding-top: 1em;
     padding-bottom: 10px;
     background-color: lightblue;
 }
@@ -28,7 +43,8 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 30px;
+    height: 5em !important;
+    padding-top: 0.5em;
 }
 
 .sidenav-background {
