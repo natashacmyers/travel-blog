@@ -1,6 +1,6 @@
 <h1 align="center">Travel Blog</h1>
 
-[View the live project here.](https://natashacmyers.github.io/trave-blog/)
+[View the live project here.](https://natashacmyers.github.io/travel-blog/)
 
 This is a website for hosting a Travel Blog. It is designed to be responsive and accessible on a range of devices,
 making it easy to navigate for all users.
@@ -23,7 +23,7 @@ making it easy to navigate for all users.
 
   - #### Frequent User Goals
     1. As a Frequent User, I want to be able to search for older posts.
-    2. As a Frequent User, I want to search for new blogs based on countries I may wish to visit.
+    2. As a Frequent User, I want to be able to search for other users' blogs based on countries I may wish to visit.
     3. As a Frequent User, I want to be able to log out and switch users.
 
 - ### Design
@@ -97,52 +97,71 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 - #### First Time Visitor Goals
 
-  1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn how to play the memory game.
+  1. As a First Time Visitor, I want to easily understand the main purpose of the site and easily navigate through to find content.
 
-     1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to the page of their choice. Underneath here is a Welcome paragaph.
-     2. The Welcome paragraph explains clearly the use of the site and how to play the game.
-     3. The game is simple to use, with clear and easy to use buttons, the user will understand how to play the game very quickly.
+     1. Upon entering the site, users are automatically greeted with an intuitive clickable map, when the user clicks anywhere on the map they will be shown blogs. This will immediately
+        help the user understand how to use the site.
+     2. As the map shows smaller on the mobile devices, the Welcome paragraph will aid in the explanation of how the map works. 
+     3. The site has been designed to be fluid and never to entrap the user. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
 
-  2. As a First Time Visitor, I want to be able to easily be able to navigate throughout the site to find content and play the game.
+  2. As a First Time Visitor, I want to be able to register a new account.
 
-     1. The site has been designed to be fluid and never to entrap the user. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
-     2. The game itself is designed with large buttons, the scores are in large text and easily visible whilst playing the game.
-     3. The welcome paragraph highlights clearly the rules of the game so the user is clear on how to win and lose.
+     1. Using the naivation bar on the top of the screen, the register page is clear and easy to find.
+     2. The registration page is simple and quick to fill in, so the user can quickly finish this activity and start blogging.
+     3. There is a clear 'To Log in click here' button at the bottom of the form, to re-direct a user that wishes to log in instead.
 
-  3. As a First Time Visitor, I want to look be able to contact the developer with feedback.
-     1. The new user is able to navigate to the contact page easily.
-     2. The contact page is simplistic with an easy-to-find contact form filling most of the page.
-     3. The contact form is clear and easy to use. The user will be able to easily choose the topic of 'feedback' and message the developer, the message will be sent directly to the developer's mailbox.
+  3. As a First Time Visitor, I want to be able to post a new blog.
+     1. Upon registering, the user will be presented with a different set of navigation bar tabs, including 'new blog'.
+     2. The new blog form is similiar to the register form to increase intuitivity for the user and develop a theme for the site. 
+     3. The user can upload images from their computer as well, giving the blogs a more dynamic feel.
 
 - #### Returning Visitor Goals
 
-  1. 1. As a Returning Visitor, I want to beat my topscore at the game.
+  1. As a Returning Visitor, I want to be able to log in.
 
-     1. The game is easy to find, especially for returning users.
-     1. The topscore is clearly visible under the game itself and will automatically populate with the highest score when the player wins or loses.
+     1. The user can navigate to the 'log in' tab using the navigation bar at the top of any screen size and any page.
+     2. The 'log in' form is similiar to both the 'registration' and 'new blog' form to increase intuitivity for the user 
+        and develop a theme for the site. 
+     3. The user will be re-directed to their profile page once logged in, so they can immediately view their own blogs.
 
-  2. As a Returning Visitor, I want to be able to contact the developer with questions about the code.
+  2. As a Returning Visitor, I want to be able to delete my blog(s).
 
-     1. The navigation bar clearly highlights the "Contact Us" Page.
-     2. Here they can fill out the form on the page.
-     3. The user can easily select 'Contact the developer' from the drop down box and send a custom message which will be sent directly to the developer's mailbox, with information about how to contact the user.
+     1. The user can navigate to their profile from anywhere on the page to view their blogs. 
+        Alternatively, when searching for blogs either by the map or by the search page, the user can see their own blogs clearly as they
+        will have a 'delete' button.
+     2. The user can easily delete any blog that belongs to them by pressing the 'delete' button located to the right side of their blog post.
+     3. The user will not be able to delete blogs that were not posted by them, which keeps other users' posts safe.
+
+
+  3. As a Returning Visitor, I want to be able to edit my blog(s).
+
+     1. The user can navigate to their profile from anywhere on the page to view their blogs. 
+        Alternatively, when searching for blogs either by the map or by the search page, the user can see their own blogs clearly as they
+        will have an 'edit' button.
+     2. The user can easily edit any blog that belongs to them by pressing the 'edit' button located to the right side of their blog post.
+     3. The user will not be able to edit blogs that were not posted by them, which keeps other users' posts safe.
 
 - #### Frequent User Goals
 
-  1. As a Frequent User, I want to check to see if there are any new updates or amendments to the game.
+  1. As a Frequent User, I want to be able to search for older posts.
 
-     1. The user would already be comfortable with the website layout and can easily access the game to see for any updates.
-     2. In the case of any major updates, a small updates box would be added to the home page in red font to announce the updates to the game, which would stand out as a change to the page to a frequent user.
+     1. The user will be able to navigate to the 'profile' page using the navigation bar at the top of any screen.
+     2. The profile page will display all the users' posts in time order, therefore the user will be able to scroll to see older posts.
+     3. Ideally, in future updates of this site, a user will be able to use the 'search' page to search by date as well as by country name.
 
-  2. As a Frequent User, I want to complete the game.
+  2. As a Frequent User, I want to be able to search for other users' blogs based on countries I may wish to visit.
 
-     1. The user would already be comfortable with the website layout and can easily play the game as normal.
-     2. The win function would allow the user to gain a topscore of 20, and reset the game to play again.
+     1. The user can navigate easily to the 'search' page using the navigation bar at the top of any screen.
+     2. The user can then search by country name, this will bring up all the blogs (including those made by the user) that are relevent to the 
+        country of choice.
+     3. In further updates for this feature, the user will be able to save favourite blogs to their profile and comment on other user's blog posts.
 
-  3. As a Frequent User, I want to be able to contact the developer with ideas and improvements for the game.
+  3. As a Frequent User, I want to be able to log out and switch users.
 
-     1. The user would already be comfortable navigating to the contact us page to fill in the contact form.
-     2. The user can then fill in the contact form as usual and select 'Ideas for improvements' from the drop down menu. Upon submission the message will be send directly to the developer's mailbox.
+     1. The user can navigate easily to the 'logout' tab using the navigation bar at the top of any screen.
+     2. The user will automatically be logged out of their account and re-directed to the log in page.
+     3. There is a clear 'To Register click here' button at the bottom of the form, to re-direct a user that wishes to register
+        a new account instead.
 
 ### Further Testing
 
@@ -153,9 +172,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
-- As the page gets smaller the flower elements became relatively too small to use. Therefore I have used a larger scale for smaller screen sizes.
-  - This results in an obvious change in size of elements at 1200px screens.
-- On Microsoft Edge and Internet Explorer Browsers, the flash element is less salient to the user. But still works well enough to play the game.
+- The clickable map is best suited to a landscape device i.e. a tablet or a desktop. On a mobile device the map is less intuitive and easy to use.
+  - This also results in a shorter screen, to add padding to the page and also for usability, a welcome paragraph has been added.
+- The user 
 
 ## Deployment
 
@@ -209,13 +228,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Code
 
-- [Pixabay](https://pixabay.com/): The flower images used to create the memory game were used from the Pixabay library.
+- [Google Charts](https://developers.google.com/chart/interactive/docs/gallery/geochart): The clickable interactive map used on the front page of this site is from Google Charts.
 
-- [Bootstrap4](https://getbootstrap.com/docs/4.4/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
+- [MaterializeCSS](https://materializecss.com/): I used the Materialize CSS Library throughout the project to improve styles of objects and to make the site responsive using the Materialize Grid System.
 
-- [FreeCodeCamp](https://www.freecodecamp.org/): Free Code Camp tutorials were used to help create the script.js file that runs the memory game itself. A lot of changes were made to the code but the fundamental principles are from Free Code Camp tutorials.
+- [Stack Overflow](https://stackoverflow.com/): I used Stack Overflow for inspiration to integrate the interactive map into my site.
 
-- [FreeSound](https://freesound.org/): Free sound provided all sounds used in the memory game.
 ### Content
 
 - All content was written by the developer.
