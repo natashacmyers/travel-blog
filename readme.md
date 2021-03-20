@@ -45,11 +45,10 @@ making it easy to navigate for all users.
 
 * ### Wireframes
 
-  - Map Page Wireframe - [View]()
-  - Search Page Wireframe - [View]()
-  - Profile Page Wireframe - [View]()
-  - Login/Register Page Wireframe - [View]()
-  - Mobile / iPad view [View]()
+  - Map Page Wireframe on Mobile - [View]()
+  - Search Page Wireframe on Desktop (Logged In) - [View]()
+  - Register Page Wireframe on Desktop (Logged Out) - [View]()
+  - Profile Page Wireframe on Tablet - [View]()
 
 ## Features
 
