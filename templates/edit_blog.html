@@ -20,7 +20,8 @@
                             {% endfor %}
                         </select>
                         <label for="country_name">Country</label>
-                    </div>
+                     </div>   
+                     
                     <!-- Blog Name -->
                     <div class="input-field col s12">
                         <input id="blog_name" type="text" value="{{blog.blog_name}}" name="blog_name" minlength="2"
@@ -29,15 +30,15 @@
                     </div>
                     <!-- Description -->
                     <div class="input-field col s12">
-                        <textarea id="blog_description" value="{{blog.blog_description}}" type="text"
-                            name="blog_description" class=" materialize-textarea validate" required></textarea>
-                        <label for="blog_description">Blog Entry</label>
+                        <textarea id="blog_entry" type="text" rows="7" name="blog_description" class="materialize-textarea validate"
+                        required>{{ blog.blog_description }}</textarea>
+                        <label for="blog_entry">Blog Entry</label>
                     </div>
                   <!-- Image Upload -->
                     <div class="col s12 image-field-size file-field input-field">
                         <div class="btn">
                             <span>Image Upload</span>
-                            <input name="blog_image" value="{{blog.blog_image}}" type="file" multiple>
+                            <input name="blog_image" type="file" multiple>
                         </div>
                     </div>
                     <!-- Date Picker -->

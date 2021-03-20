@@ -140,6 +140,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         will have an 'edit' button.
      2. The user can easily edit any blog that belongs to them by pressing the 'edit' button located to the right side of their blog post.
      3. The user will not be able to edit blogs that were not posted by them, which keeps other users' posts safe.
+     4. If the user chooses to cancel an edit, there is a 'cancel' button at the bottom of the 'edit' form.
 
 - #### Frequent User Goals
 
@@ -174,7 +175,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 - The clickable map is best suited to a landscape device i.e. a tablet or a desktop. On a mobile device the map is less intuitive and easy to use.
   - This also results in a shorter screen, to add padding to the page and also for usability, a welcome paragraph has been added.
-- The user 
+- When the user edits a blog, the text area inserts data from the database using jinja templating - this adds in quotation marks to the text.
+- The edit page does not show the originally uploaded image. This was not as simple as a value attribute for the textarea/input. With more time the name
+  of the image would show, the user would be able to delete the image and also upload a new one, or keep the original instead.
 
 ## Deployment
 
