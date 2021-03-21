@@ -19,11 +19,11 @@ nav {
     position: inherit;
     text-align: center;
     padding-left: 0.7em !important;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 
 .brand-logo {
-    font-size: 3rem !important;
+    font-size: xx-large !important;
     width: 50%;
 }
 
