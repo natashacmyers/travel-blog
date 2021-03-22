@@ -18,7 +18,7 @@
     <div class="col s12 offset-m2 m8">
         <div class="card light-blue lighten-5">
             <div class="card-content center-align">
-
+                {% if blogs.count() %}
                 <ul class="collapsible">
                     {% for blog in blogs %}
                     <li class="list-padding">
@@ -58,7 +58,13 @@
                     </li>
                     {% endfor %}
                 </ul>
-
+                {% else %}
+                <h3 class="red-text text-darken-4">Sorry! No blogs have been created yet.</h3>
+                <br>
+                <div class="row center-align">
+                    <a href="{{ url_for('new_blog') }}" class="btn-large blue">New Blog</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

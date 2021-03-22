@@ -7,14 +7,8 @@
     <div class="col s12 offset-m2 m8">
         <div class="card light-blue lighten-5">
             <div class="card-content center-align">
-                {% if blog is not defined %}
-                <h3 class="red-text text-darken-4">Sorry! No blogs found for this country.</h3>
-                <br>
-                <div class="row center-align">
-                        <a href="{{ url_for('map') }}" class="btn-large blue">Back to Map</a>
-                    </div>
-                {% else %}
-                <ul class="collapsible">
+                {% if search_results.count() %}
+               <ul class="collapsible">
                     {% for blog in search_results %}
                     <li>
                         <div class="collapsible-header ">
@@ -53,6 +47,13 @@
                     </li>
                     {% endfor %}
                 </ul>
+                {% else %}
+               
+                  <h3 class="red-text text-darken-4">Sorry! No blogs found for this country.</h3>
+                <br>
+                <div class="row center-align">
+                        <a href="{{ url_for('map') }}" class="btn-large blue">Back to Map</a>
+                    </div>
                 {% endif %}
             </div>
         </div>
