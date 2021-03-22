@@ -13,17 +13,17 @@ making it easy to navigate for all users.
 
     1. As a First Time Visitor, I want to easily understand the main purpose of the site and easily navigate through to find content.
     2. As a First Time Visitor, I want to be able to register a new account.
-    3. As a First Time Visitor, I want to be able to post a new blog.
+    3. As a First Time Visitor, I want to be able to post a new blog (CRUD - CREATE).
 
   - #### Returning Visitor Goals
 
     1. As a Returning Visitor, I want to be able to log in.
-    2. As a Returning Visitor, I want to be able to delete my blog(s).
-    3. As a Returning Visitor, I want to be able to edit my blog(s).
+    2. As a Returning Visitor, I want to be able to delete my blog(s) (CRUD - DELETE).
+    3. As a Returning Visitor, I want to be able to edit my blog(s) (CRUD - UPDATE).
 
   - #### Frequent User Goals
     1. As a Frequent User, I want to be able to search for older posts.
-    2. As a Frequent User, I want to be able to search for other users' blogs based on countries I may wish to visit.
+    2. As a Frequent User, I want to be able to search for other users' blogs based on countries I may wish to visit (CRUD - READ).
     3. As a Frequent User, I want to be able to log out and switch users.
 
 - ### Design
