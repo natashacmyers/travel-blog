@@ -101,6 +101,7 @@ body {
     margin-top: 2px;
 }
 
+
 .list-padding {
     padding: 5px;
 }
@@ -110,7 +111,11 @@ body {
 }
 
 .editandeletesmall, .blognamesmall {
-    display: block; 
+   padding: 5px !important;
+}
+
+.blog-font-size {
+    font-size: larger;
 }
 
 /*----------- Search bar CSS -------------*/

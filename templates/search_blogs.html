@@ -7,10 +7,17 @@
     <div class="col s12 offset-m2 m8">
         <div class="card light-blue lighten-5">
             <div class="card-content center-align">
+                {% if blog is not defined %}
+                <h3 class="red-text text-darken-4">Sorry! No blogs found for this country.</h3>
+                <br>
+                <div class="row center-align">
+                        <a href="{{ url_for('all_blogs') }}" class="btn-large blue">Back to Search</a>
+                    </div>
+                {% else %}
                 <ul class="collapsible">
                     {% for blog in search_results %}
                     <li>
-                         <div class="collapsible-header ">
+                        <div class="collapsible-header ">
                             {% if session.username == blog.username %}
                             <div class="col hide-on-small-only l3">
                                 <a href="{{ url_for('edit_blog', blog_id=blog._id) }}"
@@ -33,14 +40,20 @@
                             </div>
                         </div>
                         <div class="collapsible-body">
-                            <h6> Country:   {{ blog.country_name }}</h6><br>
+                            <h6> Country: {{ blog.country_name }}</h6><br>
                             <p>{{ blog.blog_description }}</p><br><br>
-                            <img src="{{ url_for('file', filename=blog.blog_image)}}" alt="blog image" class="blog-images"><br><br>
+                            {% if blog.blog_image %}
+                            <img src="{{ url_for('file', filename=blog.blog_image)}}" alt="blog image"
+                                class="blog-images"><br><br>
+                            {% else %}
+
+                            {% endif %}
                             <p><em>By: {{ blog.username }}</em></p>
                         </div>
                     </li>
                     {% endfor %}
                 </ul>
+                {% endif %}
             </div>
         </div>
     </div>

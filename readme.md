@@ -102,7 +102,7 @@ making it easy to navigate for all users.
 
   1. As a First Time Visitor, I want to easily understand the main purpose of the site and easily navigate through to find content.
 
-     1. Upon entering the site, users are automatically greeted with an intuitive clickable map, when the user clicks anywhere on the map they will be shown blogs. This will immediately
+     1. Upon entering the site, users are automatically greeted with an intuitive clickable map, when the user clicks anywhere on the map they will be shown blogs for that region. This will immediately
         help the user understand how to use the site.
      2. As the map shows smaller on the mobile devices, the Welcome paragraph will aid in the explanation of how the map works. 
      3. The site has been designed to be fluid and never to entrap the user. At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
@@ -181,6 +181,11 @@ making it easy to navigate for all users.
 - When the user edits a blog, the text area inserts data from the database using jinja templating - this adds in quotation marks to the text.
 - The edit page does not show the originally uploaded image. This was not as simple as a value attribute for the textarea/input. With more time the name
   of the image would show, the user would be able to delete the image and also upload a new one, or keep the original instead.
+- Due to lack of time, only half of the countries in the world have been added to the drop-down list for the 'new/edit blog' page, and also to the map. You
+  can see which sections have been activated as these are green instead of greyed out.
+- View on a 'Galaxy Fold' is not great UX when viewing blogs. After several attempts to change the layout, there has been little to no improvement without affecting other devices.
+  This would need more time to resolve.
+
 
 ## Deployment
 

@@ -7,6 +7,13 @@
     <div class="col s12 offset-m2 m8">
         <div class="card light-blue lighten-5">
             <div class="card-content center-align">
+                {% if blog is not defined %}
+                <h3 class="red-text text-darken-4">Sorry! No blogs found for this country.</h3>
+                <br>
+                <div class="row center-align">
+                        <a href="{{ url_for('map') }}" class="btn-large blue">Back to Map</a>
+                    </div>
+                {% else %}
                 <ul class="collapsible">
                     {% for blog in search_results %}
                     <li>
@@ -33,14 +40,20 @@
                             </div>
                         </div>
                         <div class="collapsible-body">
-                            <h6> Country:   {{ blog.country_name }}</h6><br>
+                            <h6> Country: {{ blog.country_name }}</h6><br>
                             <p>{{ blog.blog_description }}</p><br><br>
-                            <img src="{{ url_for('file', filename=blog.blog_image)}}" alt="blog image" class="blog-images"><br><br>
+                            {% if blog.blog_image %}
+                            <img src="{{ url_for('file', filename=blog.blog_image)}}" alt="blog image"
+                                class="blog-images"><br><br>
+                            {% else %}
+
+                            {% endif %}
                             <p><em>by: {{ blog.username }}</em></p>
                         </div>
                     </li>
                     {% endfor %}
                 </ul>
+                {% endif %}
             </div>
         </div>
     </div>
