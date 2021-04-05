@@ -144,11 +144,13 @@ def new_blog():
 @app.route("/edit_blog/<blog_id>", methods=["GET", "POST"])
 def edit_blog(blog_id):
     if request.method == "POST":
+        blog_image = request.files['blog_image']
+        mongo.save_file(blog_image.filename, blog_image)
         updated_blog = {
              "blog_name": request.form.get("blog_name"),
              "country_name": request.form.get("blog_country"),
              "blog_description": request.form.get("blog_description"),
-             "blog_image": request.form.get("blog_image"),
+             "blog_image": blog_image.filename,
              "username": session["username"],
              "blog_date": request.form.get("blog_date")
         }
