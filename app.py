@@ -146,17 +146,32 @@ def edit_blog(blog_id):
     if request.method == "POST":
         blog_image = request.files['blog_image']
         mongo.save_file(blog_image.filename, blog_image)
-        updated_blog = {
-             "blog_name": request.form.get("blog_name"),
-             "country_name": request.form.get("blog_country"),
-             "blog_description": request.form.get("blog_description"),
-             "blog_image": blog_image.filename,
-             "username": session["username"],
-             "blog_date": request.form.get("blog_date")
-        }
-        mongo.db.blogs.update({"_id": ObjectId(blog_id)}, updated_blog)
-        flash("Blog Successfully Updated")
-        return redirect(url_for(
+        if blog_image.filename:
+            updated_blog = {
+                "blog_name": request.form.get("blog_name"),
+                "country_name": request.form.get("blog_country"),
+                "blog_description": request.form.get("blog_description"),
+                "blog_image": blog_image.filename,
+                "username": session["username"],
+                "blog_date": request.form.get("blog_date")
+            }
+            mongo.db.blogs.update({"_id": ObjectId(blog_id)}, updated_blog)
+            flash("Blog Successfully Updated")
+            return redirect(url_for(
+                        "profile", username=session["username"]))
+        else:
+            mongo.db.blogs.update({"_id": ObjectId(blog_id)},
+            {"$set":
+                {
+                    "blog_name": request.form.get("blog_name"),
+                    "country_name": request.form.get("blog_country"),
+                    "blog_description": request.form.get("blog_description"),
+                    "username": session["username"],
+                    "blog_date": request.form.get("blog_date")
+                }
+            })
+            flash("Blog Successfully Updated")
+            return redirect(url_for(
                         "profile", username=session["username"]))
     blog = mongo.db.blogs.find_one({"_id": ObjectId(blog_id)})
     countries = mongo.db.countries.find().sort("country_name", 1)
