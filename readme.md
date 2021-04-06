@@ -178,11 +178,8 @@ making it easy to navigate for all users.
 
 - The clickable map is best suited to a landscape device i.e. a tablet or a desktop. On a mobile device the map is less intuitive and easy to use.
   - This also results in a shorter screen, to add padding to the page and also for usability, a welcome paragraph has been added.
-- When the user edits a blog, the text area inserts data from the database using jinja templating - this adds in quotation marks to the text.
-- The edit page does not show the originally uploaded image. This was not as simple as a value attribute for the textarea/input. With more time the name
-  of the image would show, the user would be able to delete the image and also upload a new one, or keep the original instead.
-- Due to lack of time, only half of the countries in the world have been added to the drop-down list for the 'new/edit blog' page, and also to the map. You
-  can see which sections have been activated as these are green instead of greyed out.
+- Due to lack of time, not all the countries in the world have been added to the drop-down list for the 'new/edit blog' page, nor to the map. You
+  can see which sections on the map have been activated as these are green instead of greyed out.
 - View on a 'Galaxy Fold' is not great UX when viewing blogs. After several attempts to change the layout, there has been little to no improvement without affecting other devices.
   This would need more time to resolve.
 
