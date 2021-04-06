@@ -35,7 +35,8 @@ def all_blogs():
         return render_template(
             "search_blogs.html", search_results=search_results, filename='blog_image')
 
-    return render_template("all_blogs.html", blogs=blogs, filename='blog_image')
+    return render_template(
+        "all_blogs.html", blogs=blogs, filename='blog_image')
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -82,7 +83,7 @@ def login():
         if existing_user:
             # make sure the hashed password matches the user input password
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                     session["username"] = request.form.get("username").lower()
                     session["first_name"] = existing_user["first_name"]
                     flash("Welcome {}!".format(existing_user["first_name"]))
@@ -102,7 +103,8 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # get the username and firstname from the database
-    first_name = mongo.db.users.find_one({"username": session["username"]})["first_name"]
+    first_name = mongo.db.users.find_one(
+        {"username": session["username"]})["first_name"]
     userblogs = mongo.db.blogs.find({"username": session["username"]})
     if session["username"]:
         return render_template("profile.html",
@@ -195,12 +197,12 @@ def file(filename):
 def map_search(country_name):
     search_results = mongo.db.blogs.find(
             {"country_name": country_name})
-    
-    return render_template("search_map.html",
-            search_results=search_results, filename='blog_image')
-    
+
+    return render_template(
+        "search_map.html", search_results=search_results, filename='blog_image')
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
